@@ -1,0 +1,4 @@
+name: day08_contracts
+version: '1.0'
+profile: day08
+model-paths: ["models"]

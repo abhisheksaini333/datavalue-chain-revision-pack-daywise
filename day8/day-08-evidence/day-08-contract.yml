@@ -1,0 +1,23 @@
+
+product_name: insurance_policy_product
+owner: insurance_data_owner
+version: 1
+required_columns:
+  - policy_id
+  - customer_name
+  - email
+  - region
+  - premium_amount
+  - policy_status
+classifications:
+  customer_name: pii
+  email: pii
+  region: residency
+  premium_amount: financial
+allowed_consumers:
+  - claims_ops
+  - finance_reporting
+  - ai_claims_assitant
+blocked_agent_columns:
+  - customer_name
+  - email

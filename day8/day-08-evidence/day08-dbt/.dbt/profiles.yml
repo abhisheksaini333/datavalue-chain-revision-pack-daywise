@@ -1,0 +1,12 @@
+day08:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: labuser
+      password: labuser
+      dbname: labuser_db
+      schema: public
+      threads: 2

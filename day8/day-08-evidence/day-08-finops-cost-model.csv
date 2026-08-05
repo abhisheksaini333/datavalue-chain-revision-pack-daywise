@@ -1,0 +1,5 @@
+product,workload,cost_usd,business_value
+insurance_policy_product,quality_checks,72,release confidence
+insurance_policy_product,ai_context_queries,184,agent support
+insurance_policy_product,dashboard_refresh,131,ops reporting
+insurance_policy_product,ad_hoc_queries,176,unplanned analysis
