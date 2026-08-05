@@ -1,0 +1,97 @@
+{
+  "product": {
+    "product_name": "insurance_policy_product",
+    "domain": "insurance",
+    "owner": "insurance_data_owner",
+    "region_policy": "IN_ONLY_FOR_RAW_PII",
+    "monthly_budget_usd": 500,
+    "columns": [
+      {
+        "name": "policy_id",
+        "classification": "identifier"
+      },
+      {
+        "name": "customer_name",
+        "classification": "pii"
+      },
+      {
+        "name": "email",
+        "classification": "pii"
+      },
+      {
+        "name": "region",
+        "classification": "residency"
+      },
+      {
+        "name": "premium_amount",
+        "classification": "financial"
+      },
+      {
+        "name": "policy_status",
+        "classification": "operational"
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "request_id": "REQ-001",
+      "consumer": "claims_ops",
+      "consumer_type": "human",
+      "purpose": "claims investigation",
+      "columns": [
+        "policy_id",
+        "customer_name",
+        "policy_status"
+      ],
+      "region": "IN",
+      "decision": "allow",
+      "reason": "metadata policy passed"
+    },
+    {
+      "request_id": "REQ-002",
+      "consumer": "ai_claims_assistant",
+      "consumer_type": "agent",
+      "purpose": "claim summarization",
+      "columns": [
+        "policy_id",
+        "customer_name",
+        "email",
+        "policy_status"
+      ],
+      "region": "IN",
+      "decision": "approval_required",
+      "reason": "agent requested raw PII"
+    },
+    {
+      "request_id": "REQ-003",
+      "consumer": "finance_reporting",
+      "consumer_type": "human",
+      "purpose": "monthly profitability",
+      "columns": [
+        "policy_id",
+        "premium_amount",
+        "region"
+      ],
+      "region": "US",
+      "decision": "allow",
+      "reason": "finance purpose matches financial data"
+    },
+    {
+      "request_id": "REQ-004",
+      "consumer": "global_analytics",
+      "consumer_type": "human",
+      "purpose": "cross-border customer analysis",
+      "columns": [
+        "policy_id",
+        "customer_name",
+        "email"
+      ],
+      "region": "US",
+      "decision": "block",
+      "reason": "raw PII cannot leave IN region"
+    }
+  ],
+  "total_cost_usd": 563,
+  "monthly_budget_usd": 500,
+  "budget_decision": "warn"
+}

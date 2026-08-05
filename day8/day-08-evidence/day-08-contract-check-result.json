@@ -1,0 +1,23 @@
+{
+  "contract": "day-08-contract.yml",
+  "observed_source": "day-08-observed-sample.csv",
+  "required_columns": [
+    "policy_id",
+    "customer_name",
+    "email",
+    "region",
+    "premium_amount",
+    "policy_status"
+  ],
+  "observed_columns": [
+    "policy_id",
+    "customer_name",
+    "email",
+    "region",
+    "premium_amount",
+    "policy_status"
+  ],
+  "missing_columns": [],
+  "extra_columns": [],
+  "release_decision": "pass"
+}

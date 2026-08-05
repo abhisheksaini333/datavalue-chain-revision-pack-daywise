@@ -1,0 +1,7 @@
+{
+  "column": "applicant_contact_email",
+  "proposed_classification": "pii",
+  "confidence": 0.8165,
+  "rule": "never leaves IN region raw",
+  "status": "APPROVED by insurance_data_owner"
+}
