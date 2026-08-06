@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-07-31T07:00:24.102215+00:00",
+  "dataset_used": "/home/labuser/Desktop/Persistent_Folder/Workspace/day-05-evidence/source-extract/insurance_cash_application.csv",
+  "row_count": 1200,
+  "column_count": 30,
+  "sample_columns": [
+    "Transaction_ID",
+    "Policy_Number",
+    "Policyholder_Name",
+    "Payment_Date",
+    "Posting_Date",
+    "Payment_Method",
+    "Payment_Reference",
+    "Currency"
+  ],
+  "checks": {
+    "dataset_exists": true,
+    "row_count_positive": true,
+    "at_least_three_columns": true,
+    "business_column_hints_present": true
+  },
+  "status": "PASS",
+  "production_decision": "ready_for_demo_packaging"
+}

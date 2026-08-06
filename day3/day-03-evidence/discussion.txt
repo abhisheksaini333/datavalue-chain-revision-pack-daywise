@@ -1,0 +1,24 @@
+Record 1.     A. Sharma,  phone number ending  2345, policy P-101
+Record 2.     ABhishekSharma, phone number ending 2345, claim  C-998
+
+
+Junior analyst:  Looks like the same person, lets merge the recrods.
+An AI Agent: High degree of similarity, merge recommeded.
+
+
+Who approved this ?
+What evidence did you see ?
+can you trace the data to the source ?
+
+
+
+Quality dimensions:
+
+1. Completness : required values are present or not ? e.g. policy-id missing from insurance policy
+2. Valididty : values folloed rules or not ? e.g. if a policy status should be Active, Expired or cancelled. BUT Maybe as a status is not valid.
+3. Accuracy : means values follow allowed and trusted source. if a DOB is a claim system differs from spurce of record, we need a resolution rule. 
+4. Timeliness : data should be fresh enough for a decision. data can be accurate but if still too late, then cannot be trusted.
+
+
+
+

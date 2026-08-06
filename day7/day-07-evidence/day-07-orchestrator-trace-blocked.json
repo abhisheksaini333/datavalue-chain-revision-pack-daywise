@@ -1,0 +1,63 @@
+{
+  "incident_id": "INC-CLAIMS-007",
+  "final_state": "waiting_for_approval",
+  "approved_by_human": false,
+  "trace": [
+    {
+      "ts": "2026-08-04T08:36:46.674737+00:00",
+      "agent": "monitor",
+      "action": "detect_incident",
+      "evidence": "dbt test failed: required column claim_amount missing; freshness age 42m",
+      "decision": "open incident",
+      "authority": "observe_only"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.674835+00:00",
+      "agent": "diagnoser",
+      "action": "compare_schema",
+      "evidence": "missing=['claim_amount']; candidate_replacement=amount_paid",
+      "decision": "schema drift likely",
+      "authority": "suggestion_only"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.675251+00:00",
+      "agent": "memory",
+      "action": "retrieve_similair_incident",
+      "evidence": "matched pattern: required column claim_amount missing; verified=True",
+      "decision": "map amount_paid to claim_amount only after owner approval",
+      "authority": "suggestion_only"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.675670+00:00",
+      "agent": "planner",
+      "action": "propise_repair",
+      "evidence": "{\"proposed_action\": \"map amount_paid to claim_amount in staging transform\", \"confidence\": 0.72, \"authority\": \"approval_required\", \"idempotency_key\": \"1784619f739e\", \"reason\": \"field may not have identical business meaning\"}",
+      "decision": "wait for approval",
+      "authority": "approval_required"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.675808+00:00",
+      "agent": "human_approver",
+      "action": "review_schema_chaange",
+      "evidence": "owner review required before shcema change",
+      "decision": "blocked",
+      "authority": "approval_required"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.675876+00:00",
+      "agent": "fixer",
+      "action": "attempt_repair",
+      "evidence": "approval_missing",
+      "decision": "do not execute",
+      "authority": "blocked"
+    },
+    {
+      "ts": "2026-08-04T08:36:46.675922+00:00",
+      "agent": "verifier",
+      "action": "run_tets",
+      "evidence": "repar not applied",
+      "decision": "incident remains open",
+      "authority": "observe_only"
+    }
+  ]
+}

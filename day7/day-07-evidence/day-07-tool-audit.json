@@ -1,0 +1,51 @@
+[
+  {
+    "ts": "2026-08-04T13:57:21.265381+00:00",
+    "tool": "inspect_dag_status",
+    "decision": "ALLOWED",
+    "reason": "read-only DAG status lookup",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265440+00:00",
+    "tool": "drop_table",
+    "decision": "DENIED",
+    "reason": "tool not in registry",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265484+00:00",
+    "tool": "apply_schema_mapping",
+    "decision": "BLOCKED",
+    "reason": "approval required, none supplied",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265527+00:00",
+    "tool": "trigger_approved_airflow_retry",
+    "decision": "DENIED",
+    "reason": "missing required params: ['idempotency_key']",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265568+00:00",
+    "tool": "apply_schema_mapping",
+    "decision": "ALLOWED",
+    "reason": "map a renamed source field in the staging transform",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265608+00:00",
+    "tool": "apply_schema_mapping",
+    "decision": "SKIPPED",
+    "reason": "idempotency key already executed: INC-CLAIMS-007:schema",
+    "incident_id": "INC-CLAIMS-007"
+  },
+  {
+    "ts": "2026-08-04T13:57:21.265646+00:00",
+    "tool": "run_dbt_tests",
+    "decision": "ALLOWED",
+    "reason": "run named data tests as verification",
+    "incident_id": "INC-CLAIMS-007"
+  }
+]

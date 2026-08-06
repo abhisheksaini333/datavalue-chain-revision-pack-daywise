@@ -1,0 +1,10 @@
+
+curl -s -X PUT http://localhost:6333/collections/day09_claim_chunks_new \
+-H 'Content-Type: application/json' \
+-d '{"vectors": {"size":12,"distance":"Cosine"}}'
+
+
+curl -s -X PUT "http://localhost:6333/collections/day09_claim_chunks_new/points?wait=true" \
+-H 'Content-Type: application/json' \
+--data-binary @day-09-qdrant-points.json | head -c 300
+printf "\n"
